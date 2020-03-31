@@ -3,17 +3,16 @@
   "version": "3.0.0",
   "scripts": {
     "build:prod": "ng build --prod",
-    "build:pub": "ng build --prod --output-path docs --base-href https://trainingit-introangular-ed3.github.io/training-projects/",
+    "build:pub": "ng build --prod --output-path docs --base-href https://introangular4.github.io/practica4-mcuest/",
     "e2e": "ng e2e",
     "lint": "ng lint",
     "ng": "ng",
     "pub": "npm run build:pub && npm run push",
     "push": "git add * && git commit -m 'pub' && git push",
     "start:prod": "npm run build:prod && npm run http-server",
-    "start": "ng serve -o --port 4279",
+    "start": "ng serve --aot -o --port 4279",
     "test": "ng test"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "~9.0.0-next.8",
     "@angular/common": "~9.0.0-next.8",
@@ -29,7 +28,7 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.803.6",
+    "@angular-devkit/build-angular": "^0.901.0",
     "@angular/cli": "~8.3.6",
     "@angular/compiler-cli": "~9.0.0-next.8",
     "@angular/language-service": "~9.0.0-next.8",
@@ -39,7 +38,7 @@
     "codelyzer": "^5.0.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~4.0.0",
+    "karma": "^4.4.1",
     "karma-chrome-launcher": "~2.2.0",
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~1.1.2",
