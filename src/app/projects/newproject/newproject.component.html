@@ -1,0 +1,16 @@
+<form>
+  <fieldset>
+    <legend>Nuevo proyecto</legend>
+
+    <label for="name">Name</label>
+    <input name="name"
+           type="text"
+           [(ngModel)]="nuevoProyecto.name"
+           placeholder="Project name" />
+  </fieldset>
+
+</form>
+
+<input value="Save"
+       type="submit"
+       (click)="saveProject()" />

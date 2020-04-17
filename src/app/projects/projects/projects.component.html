@@ -1,0 +1,15 @@
+<ul *ngIf="proyectos.length>0; else empty">
+  <li *ngFor="let proyecto of proyectos">
+    <a routerLink="{{ proyecto.id }}"
+       class="button"><span>{{ proyecto.name }}</span></a>
+  </li>
+</ul>
+<ng-template #empty> <i>Sin datos</i> </ng-template>
+<br />
+<a routerLink="new"
+   class="button">New</a>
+<br />
+<hr />
+<br />
+<router-outlet></router-outlet>
+<br />
