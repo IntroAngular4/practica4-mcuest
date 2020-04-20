@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from '../../../environments/environment';
-import { Project } from '../models/project.model';
+import { ProjectsService } from '../projects.service';
 
 @Component( {
   selector: 'app-newproject',
@@ -9,24 +8,15 @@ import { Project } from '../models/project.model';
 } )
 export class NewprojectComponent implements OnInit {
 
-  private contador: number;
-  public proyectos: Project[];
-  public nuevoProyecto: Project = {
-    id: -1,
-    name: ''
-  };
-
-  constructor() { }
+  constructor( private projectService: ProjectsService ) { }
 
   ngOnInit(): void {
-    this.proyectos = environment.projects;
-    this.contador = this.proyectos.length;
   }
 
-  public saveProject() {
-    this.nuevoProyecto.id = this.contador;
-    this.proyectos.push( { ...this.nuevoProyecto } );
-    this.contador += 1;
+  public saveProject( name: string ) {
+    //this.nuevoProyecto.id = this.contador;
+    // this.proyectos.push( { ...this.nuevoProyecto } );
+    this.projectService.guardarProyecto( name );
   }
 
 }

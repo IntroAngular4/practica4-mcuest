@@ -1,0 +1,15 @@
+<form>
+  <fieldset>
+    <legend>{{ title }}</legend>
+
+    <label for="name">Name</label>
+    <input name="nameFilter"
+           [(ngModel)]="filterName"
+           type="text"
+           placeholder="Filter by name" />
+    <input name="filterBtn"
+           type="button"
+           value="filter"
+           (click)="filtrarProyectos()" />
+  </fieldset>
+</form>

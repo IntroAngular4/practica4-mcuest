@@ -1,10 +1,6 @@
-<ul *ngIf="proyectos.length>0; else empty">
-  <li *ngFor="let proyecto of proyectos">
-    <a routerLink="{{ proyecto.id }}"
-       class="button"><span>{{ proyecto.name }}</span></a>
-  </li>
-</ul>
-<ng-template #empty> <i>Sin datos</i> </ng-template>
+<app-filterprojectsform (filterProjectsEvent)="filterProject($event)"
+                        [title]="'Filter projects'"></app-filterprojectsform>
+<app-projectslist [proyectos]="proyectos"></app-projectslist>
 <br />
 <a routerLink="new"
    class="button">New</a>
@@ -13,3 +9,4 @@
 <br />
 <router-outlet></router-outlet>
 <br />
+<!-- <pre>{{ proyectos | json }}</pre> -->
