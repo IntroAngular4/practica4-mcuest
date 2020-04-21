@@ -16,7 +16,10 @@ export class NewprojectComponent implements OnInit {
   public saveProject( name: string ) {
     //this.nuevoProyecto.id = this.contador;
     // this.proyectos.push( { ...this.nuevoProyecto } );
-    this.projectService.guardarProyecto( name );
+
+    //this.projectService.guardarProyecto( name );
+
+    this.projectService.guardarProyectoHttp( name );
   }
 
 }

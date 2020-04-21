@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
-import { environment } from '../../../environments/environment';
-import { Project } from '../models/project.model';
+import { ProjectsService } from '../projects.service';
 
 @Component( {
   selector: 'app-viewerproject',
@@ -10,12 +9,12 @@ import { Project } from '../models/project.model';
 } )
 export class ViewerprojectComponent implements OnInit {
 
-  public proyecto: Project;
+  public nombreProyecto: number;
 
-  constructor( activateRoute: ActivatedRoute ) {
+  constructor( activateRoute: ActivatedRoute, private projectService: ProjectsService ) {
     activateRoute.params.subscribe( params => {
-      const proyectoId = params.id;
-      this.proyecto = environment.projects.find( p => p.id == proyectoId );
+      this.nombreProyecto = params.id;
+      //this.proyecto = environment.projects.find( p => p.id == this.proyectoId );
     } );
   }
 

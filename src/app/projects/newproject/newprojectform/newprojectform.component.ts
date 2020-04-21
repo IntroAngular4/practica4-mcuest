@@ -9,7 +9,7 @@ import { Project } from '../../models/project.model';
 export class NewprojectformComponent implements OnInit {
 
   public nuevoProyecto: Project = {
-    id: -1,
+    _id: -1,
     name: ''
   };
 

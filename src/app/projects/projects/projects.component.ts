@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from '../../../environments/environment';
+import { Observable } from 'rxjs';
 import { Project } from '../models/project.model';
 import { ProjectsService } from '../projects.service';
 
@@ -12,21 +12,20 @@ import { ProjectsService } from '../projects.service';
 export class ProjectsComponent implements OnInit {
 
   public proyectos: Project[] = [];
+  public proyectosHttp$: Observable<Project[]> = null;
 
   constructor( private projectService: ProjectsService ) { }
 
   ngOnInit(): void {
-    this.proyectos = environment.projects;
+    //this.proyectos = environment.projects;
+    this.projectService.getProyectosHttp().subscribe( result => ( this.proyectos = result ) );
   }
 
   filterProject( name: string ) {
     this.proyectos = this.projectService.filtrarProyecto( name );
+  }
 
-    // if ( name.trim().length > 0 ) {
-    //   this.proyectos = this.proyectos.filter( p => p.name.toUpperCase().indexOf( name.toUpperCase() ) > -1 );
-    // }
-    // else {
-    //   this.proyectos = environment.projects;
-    // }
+  guardaHttp() {
+    this.projectService.guardarProyectoHttp( 'pruebaProy01' );
   }
 }
