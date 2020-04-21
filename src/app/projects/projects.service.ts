@@ -40,4 +40,8 @@ export class ProjectsService {
     this.proyectos.push( nuevoProyecto );
     return true;
   }
+
+  public borrarProyectos() {
+    this.httpClient.delete( this.urlApi ).subscribe();
+  }
 }

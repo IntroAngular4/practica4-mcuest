@@ -30,7 +30,7 @@ export class ProjectsComponent implements OnInit {
     }
   }
 
-  guardaHttp() {
-    this.projectService.guardarProyectoHttp( 'pruebaProy01' );
+  deleteProjects() {
+    this.projectService.borrarProyectos();
   }
 }
