@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from '../../../environments/environment';
+import { Observable } from 'rxjs';
+import { share, tap } from 'rxjs/operators';
+import { Project } from '../../projects/models/project.model';
+import { ProjectsService } from '../../projects/projects.service';
+
 
 @Component( {
   selector: 'app-home',
@@ -8,13 +12,22 @@ import { environment } from '../../../environments/environment';
 } )
 export class HomeComponent implements OnInit {
 
-  public numProyectos: number;
+  public numProyectos: number = 0;
   public counterClass = 'tag secondary';
+  public proyectos$: Observable<Project[]> = null;
 
-  constructor() { }
+
+  constructor( private projectsService: ProjectsService ) { }
 
   ngOnInit(): void {
-    this.numProyectos = environment.projects.length;
+    //this.numProyectos = environment.projects.length;
+    this.proyectos$ = this.projectsService.getProyectosHttp().pipe( share() );
+    //this.proyectos$.subscribe( response => console.log( response ) );
+    this.proyectos$.pipe( tap( x => x.map( y => this.numProyectos += 1 ) ) ).subscribe();
   }
+
+  // private pruebaMap( pr: Project[] ) {
+  //   pr.map( x => console.log( x.name ) );
+  // }
 
 }
