@@ -26,13 +26,13 @@ export class ProjectsService {
     this.httpClient.post( this.urlApi, nuevoProyecto ).subscribe();
   }
 
-  public filtrarProyecto( nombre: string ): Project[] {
-    this.proyectos = environment.projects;
-    if ( nombre.trim().length > 0 ) {
-      this.proyectos = this.proyectos.filter( p => p.name.toUpperCase().indexOf( nombre.toUpperCase() ) > -1 );
-    }
-    return this.proyectos
-  }
+  //public filtrarProyecto( nombre: string ) {
+  // this.proyectos = environment.projects;
+  // if ( nombre.trim().length > 0 ) {
+  //   this.proyectos = this.proyectos.filter( p => p.name.toUpperCase().indexOf( nombre.toUpperCase() ) > -1 );
+  // }
+  // return this.proyectos
+  //}
 
   public guardarProyecto( nombre: string ) {
     this.proyectos = environment.projects;

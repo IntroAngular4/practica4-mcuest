@@ -22,7 +22,12 @@ export class ProjectsComponent implements OnInit {
   }
 
   filterProject( name: string ) {
-    this.proyectos = this.projectService.filtrarProyecto( name );
+    if ( name.length == 0 ) {
+      this.projectService.getProyectosHttp().subscribe( result => ( this.proyectos = result ) );
+    }
+    else {
+      this.proyectos = this.proyectos.filter( x => x.name.toUpperCase().indexOf( name.toUpperCase() ) > -1 );
+    }
   }
 
   guardaHttp() {
