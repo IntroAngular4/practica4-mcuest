@@ -1,6 +1,6 @@
-<ul *ngIf="proyectos.length>0; else empty">
+<ul *ngIf="proyectos != null; else empty">
   <li *ngFor="let proyecto of proyectos">
-    <a routerLink="{{ proyecto.name }}"
+    <a routerLink="{{ proyecto._id }}"
        class="button"><span>{{ proyecto.name }}</span></a>
   </li>
 </ul>

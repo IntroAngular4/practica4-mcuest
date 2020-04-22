@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Project } from '../models/project.model';
 import { ProjectsService } from '../projects.service';
 
 @Component( {
@@ -8,18 +10,19 @@ import { ProjectsService } from '../projects.service';
 } )
 export class NewprojectComponent implements OnInit {
 
-  constructor( private projectService: ProjectsService ) { }
+  constructor( private projectService: ProjectsService, private router: Router ) { }
 
   ngOnInit(): void {
   }
 
-  public saveProject( name: string ) {
+  public saveProject( proyecto: Project ) {
     //this.nuevoProyecto.id = this.contador;
     // this.proyectos.push( { ...this.nuevoProyecto } );
 
     //this.projectService.guardarProyecto( name );
 
-    this.projectService.guardarProyectoHttp( name );
+    this.projectService.guardarProyectoHttp( proyecto );
+    this.router.navigate( ['./'] );
   }
 
 }

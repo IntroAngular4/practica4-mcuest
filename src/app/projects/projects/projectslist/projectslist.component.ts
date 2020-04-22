@@ -8,7 +8,6 @@ import { Project } from '../../models/project.model';
 } )
 export class ProjectslistComponent implements OnInit {
 
-  //@Input() proyectos: Project[];
   @Input() proyectos: Project[];
 
   constructor() { }

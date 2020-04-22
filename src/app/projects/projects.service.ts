@@ -17,26 +17,17 @@ export class ProjectsService {
     return this.httpClient.get<Project[]>( this.urlApi );
   }
 
-  // public getProyectoById( id: number ) {
-  //   return this.httpClient.get<Project>( this.urlApi + '/' + id );
-  // }
-
-  public guardarProyectoHttp( nombre: string ) {
-    const nuevoProyecto = { name: nombre };
-    this.httpClient.post( this.urlApi, nuevoProyecto ).subscribe();
+  public getProyectoById( id: string ) {
+    return this.httpClient.get<Project>( this.urlApi + '/' + id );
   }
 
-  //public filtrarProyecto( nombre: string ) {
-  // this.proyectos = environment.projects;
-  // if ( nombre.trim().length > 0 ) {
-  //   this.proyectos = this.proyectos.filter( p => p.name.toUpperCase().indexOf( nombre.toUpperCase() ) > -1 );
-  // }
-  // return this.proyectos
-  //}
+  public guardarProyectoHttp( proyecto: Project ) {
+    this.httpClient.post( this.urlApi, proyecto ).subscribe();
+  }
 
-  public guardarProyecto( nombre: string ) {
+  public guardarProyecto( nombre: string, descripcion: string ) {
     this.proyectos = environment.projects;
-    const nuevoProyecto: Project = { _id: this.proyectos.length, name: nombre };
+    const nuevoProyecto: Project = { _id: this.proyectos.length, name: nombre, description: descripcion };
     this.proyectos.push( nuevoProyecto );
     return true;
   }

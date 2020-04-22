@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewprojectComponent } from './newproject/newproject.component';
 import { NewprojectformComponent } from './newproject/newprojectform/newprojectform.component';
 import { ProjectsRoutingModule } from './projects-routing.module';
@@ -18,7 +18,8 @@ import { ViewerprojectformComponent } from './viewerproject/viewerprojectform/vi
   imports: [
     CommonModule,
     ProjectsRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 } )
 export class ProjectsModule { }

@@ -17,12 +17,13 @@ export class HomeComponent implements OnInit {
   public proyectos$: Observable<Project[]> = null;
 
 
-  constructor( private projectsService: ProjectsService ) { }
+  constructor( private projectsService: ProjectsService ) {
+  }
 
   ngOnInit(): void {
     //this.numProyectos = environment.projects.length;
     this.proyectos$ = this.projectsService.getProyectosHttp();
     //this.proyectos$.subscribe( response => console.log( response ) );
-    this.proyectos$.pipe( tap( x => x.map( y => this.numProyectos += 1 ) ) ).subscribe();
+    this.proyectos$.pipe( tap( x => x.map( () => this.numProyectos += 1 ) ) ).subscribe();
   }
 }

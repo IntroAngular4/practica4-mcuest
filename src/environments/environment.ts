@@ -6,10 +6,10 @@ export const environment = {
   appName: 'Training Projects',
   production: false,
   projects: [
-    { _id: 0, name: 'Learn Angular' },
-    { _id: 1, name: 'Develop My Dream app' },
-    { _id: 2, name: 'Travel around the world' },
-    { _id: 3, name: 'Clean my room' }
+    { _id: 0, name: 'Learn Angular', description: '' },
+    { _id: 1, name: 'Develop My Dream app', description: '' },
+    { _id: 2, name: 'Travel around the world', description: '' },
+    { _id: 3, name: 'Clean my room', description: '' }
   ]
 };
 

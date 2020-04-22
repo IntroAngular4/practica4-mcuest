@@ -1,1 +1,7 @@
-Project name:<h3>{{ this.projectName }}</h3>
+<div *ngIf="this.project != null">
+  <p>Project name:</p>
+  <h3>{{ this.project.name }}</h3>
+  <br>
+  <p>Project description:</p>
+  <h3>{{ this.project.description }}</h3>
+</div>

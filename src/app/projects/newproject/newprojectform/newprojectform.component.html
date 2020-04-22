@@ -1,16 +1,23 @@
-<form>
+<form [formGroup]="formGroup">
   <fieldset>
     <legend>Nuevo proyecto</legend>
 
     <label for="name">Name</label>
     <input name="name"
+           formControlName="name"
            type="text"
-           [(ngModel)]="nuevoProyecto.name"
            placeholder="Project name" />
   </fieldset>
+  <fieldset>
+    <label for="description">Description</label>
+    <input name="description"
+           formControlName="description"
+           type="text"
+           placeholder="Project description" />
+  </fieldset>
 
+  <input value="Save"
+         type="submit"
+         (click)="onGuardarProyecto()"
+         [disabled]="formGroup.invalid" />
 </form>
-
-<input value="Save"
-       type="submit"
-       (click)="onGuardarProyecto()" />
