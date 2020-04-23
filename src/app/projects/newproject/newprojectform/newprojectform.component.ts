@@ -32,4 +32,13 @@ export class NewprojectformComponent implements OnInit {
     //this.guardaProyecto.emit( this.nuevoProyecto.name );
     this.guardaProyecto.emit( this.formGroup.value )
   }
+
+  public getError( controlName: string ): string {
+    let error = '';
+    const control = this.formGroup.get( controlName );
+    if ( control.touched && control.errors != null ) {
+      error = JSON.stringify( control.errors );
+    }
+    return error;
+  }
 }

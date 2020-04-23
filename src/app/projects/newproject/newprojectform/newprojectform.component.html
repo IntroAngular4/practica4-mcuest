@@ -7,6 +7,8 @@
            formControlName="name"
            type="text"
            placeholder="Project name" />
+    <span>{{ getError('name')}}</span>
+
   </fieldset>
   <fieldset>
     <label for="description">Description</label>
@@ -14,6 +16,7 @@
            formControlName="description"
            type="text"
            placeholder="Project description" />
+    <span>{{ getError('description')}}</span>
   </fieldset>
 
   <input value="Save"

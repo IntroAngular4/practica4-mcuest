@@ -1,1 +1,5 @@
-<h5>MCUEST footer</h5>
+<h5>History</h5>
+
+<ul>
+  <li *ngFor="let notificacion of notificaciones$ | async">{{ notificacion }}</li>
+</ul>
